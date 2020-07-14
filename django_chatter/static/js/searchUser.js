@@ -30,7 +30,7 @@ $(function() {
 			// populate(data.userslist);
 			// linkuser(data.userslist);
 			$('.select-chat-user').select2({
-				placeholder: 'Start chat',
+				placeholder: 'Начать чат',
 				data: data,
 				width: 'resolve',
 			});

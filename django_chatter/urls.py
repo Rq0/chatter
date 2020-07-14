@@ -5,11 +5,11 @@ from . import views
 app_name = 'django_chatter'
 
 urlpatterns = [
-	path('', views.IndexView.as_view(), name = "index"),
-	path('chat/<str:uuid>/', views.ChatRoomView.as_view(), name = "chatroom"),
+    path('', views.IndexView.as_view(), name="index"),
+    path('chat/<str:uuid>/', views.ChatRoomView.as_view(), name="chatroom"),
 
-	#AJAX paths
-	path('ajax/users-list/', views.users_list, name = "users_list"),
-	path('ajax/get-chat-url/', views.get_chat_url, name = "get_chat_url"),
-	path('ajax/get-messages/<str:uuid>/', views.get_messages, name="get_messages")
+    # AJAX paths
+    path('ajax/users-list/', views.users_list, name="users_list"),
+    path('ajax/get-chat-url/', views.ChatUrlView.as_view(), name="get_chat_url"),
+    path('ajax/get-messages/<str:uuid>/', views.get_messages, name="get_messages")
 ]

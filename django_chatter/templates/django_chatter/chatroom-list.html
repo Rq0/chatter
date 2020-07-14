@@ -16,18 +16,20 @@
 	The following div describes the Search bar to search
 	for users as well as the name of the chatroom.
 	===========================================================AI-->
-	<div class="chatroom-list-title">Chats</div>
-	<div class="search">
-		<form class="search-form" action="{% url 'django_chatter:get_chat_url' %}" method="post">
-			{% csrf_token %}
-			<!-- <input id = "searchbar" placeholder = "Username"></input>
-			<button id = "user-selected">Go</button><br /> -->
-			<select class="select-chat-user" name="target_user">
-				<option></option>
-			</select>
-			<button type="submit" name="button" class="select-chat-button">Go</button>
-		</form>
-	</div>
+	<div class="chatroom-list-title">Диалоги</div>
+    {% if user.user_type == 2 %}
+        <div class="search">
+            <form class="search-form" action="{% url 'django_chatter:get_chat_url' %}" method="post">
+                {% csrf_token %}
+                <!-- <input id = "searchbar" placeholder = "Username"></input>
+                <button id = "user-selected">Go</button><br /> -->
+                <select class="select-chat-user" name="target_user">
+                    <option></option>
+                </select>
+                <button type="submit" name="button" class="select-chat-button">Go</button>
+            </form>
+        </div>
+    {% endif %}
 
 <!--AI==========================================================
 	The following block represents the list of chatrooms at the left
@@ -79,4 +81,6 @@
 	var get_chat_url = '{% url "django_chatter:get_chat_url" %}';
 	var chatter_index = '{% url "django_chatter:index" %}';
 </script>
-<script src = "{% static 'js/searchUser.js' %}"></script>
+{% if user.user_type == 2 %}
+    <script src = "{% static 'js/searchUser.js' %}"></script>
+{% endif %}

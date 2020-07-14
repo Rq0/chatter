@@ -30,7 +30,7 @@ function updateSenderMessagePreview(room_id, message) {
 	// Update the message preview on the chatoom-list
 	$("#" + room_id)
 		.find('.chat-list-last-message')
-		.text("You: " + message);
+		.text("Вы: " + message);
 }
 
 function updateOpponentMessagePreview(room_id, sender, message) {
